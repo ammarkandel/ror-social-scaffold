@@ -35,6 +35,10 @@ a {
   color: $primary-color-text;
 }
 
+.user-sign a {
+  margin: 10px;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -342,8 +346,4 @@ form {
   .user-section {
     width: 50%;
   }
-}
-
-.user-sign a {
-  margin: 10px;
 }
