@@ -15,4 +15,16 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def current_user_log(current_user)
+    out = ''
+    if user_signed_in?
+      out << link_to(current_user.name, user_path(current_user))
+      out << link_to('Friends', friendships_path)
+      out << link_to('SignOut', destroy_user_session_path, method: :delete)
+    else
+      out << link_to('SignIn', user_session_path)
+    end
+    out.html_safe
+  end
 end
