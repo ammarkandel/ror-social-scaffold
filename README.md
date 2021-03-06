@@ -5,7 +5,8 @@
 ## Built With
 
 - Ruby
-- Ruby on Rails v5.2.4
+- Ruby on Rails v5.2.
+- Sqlite
 
 ## Live Demo
 
@@ -18,9 +19,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Sqllite
+- Ruby: 2.6.3
+- Rails: 5.2.3
+- Sqlite
 
 ### Setup
 
