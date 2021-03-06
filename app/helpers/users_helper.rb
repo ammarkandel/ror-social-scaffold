@@ -3,7 +3,7 @@ module UsersHelper
     friend = current_user.friends.include?(user)
     accept = current_user.friend_requests.include?(user)
     pending = current_user.pending_requests.include?(user)
-
+    if user != current_user
     if accept
       content_tag(:br) do
         content_tag(:div) do
@@ -23,5 +23,6 @@ module UsersHelper
     else
       link_to 'Unfriend', friendship_path(id: user), method: :delete, class: 'btn btn-danger'
     end
+  end
   end
 end
