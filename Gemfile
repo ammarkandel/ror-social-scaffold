@@ -46,8 +46,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec'
   gem 'capybara'
+  gem 'rspec'
 end
 
 group :development do

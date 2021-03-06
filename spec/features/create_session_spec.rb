@@ -8,15 +8,15 @@ RSpec.describe 'Session create and destroy', type: :feature do
   end
 
   scenario 'User login validation' do
-    fill_in "user_email",	with: user_test.email
-    fill_in "user_password",	with: user_test.password
+    fill_in 'user_email',	with: user_test.email
+    fill_in 'user_password',	with: user_test.password
     click_on 'Log in'
     expect(page).to have_content('')
   end
 
   scenario 'User login not valid' do
-    fill_in "user_email",	with: "fakeemail40@gmail.com"
-    fill_in "user_password",	with: "password"
+    fill_in 'user_email',	with: 'fakeemail40@gmail.com'
+    fill_in 'user_password',	with: 'password'
     click_on 'Log in'
     expect(page).to have_content('Invalid Email or password.')
   end
