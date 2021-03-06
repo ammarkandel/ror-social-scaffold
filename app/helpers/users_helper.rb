@@ -7,21 +7,21 @@ module UsersHelper
     if accept
       content_tag(:br) do
         content_tag(:div) do
-          link_to 'Accept Request', friendship_path(id: user), method: :put, class: 'btn'
+          link_to 'Accept Request', friendship_path(id: user), method: :put, class: 'btn-request'
         end
       end +
         content_tag(:br) do
           content_tag(:div) do
-            link_to 'Decline Request', friendship_path(id: user), method: :delete, class: 'btn btn-danger'
+            link_to 'Decline Request', friendship_path(id: user), method: :delete, class: 'btn-request'
           end
         end
 
     elsif pending
-      link_to 'Pending Request', '', class: 'btn'
+      link_to 'Pending Request', '', class: 'btn-request'
     elsif !friend
-      link_to('Friend Request', friendships_path(friend_id: user), method: :post, class: 'btn btn-primary')
+      link_to('Friend Request', friendships_path(friend_id: user), method: :post, class: 'btn-request')
     else
-      link_to 'Unfriend', friendship_path(id: user), method: :delete, class: 'btn btn-danger'
+      link_to 'Unfriend', friendship_path(id: user), method: :delete, class: 'btn-request'
     end
   end
   end
