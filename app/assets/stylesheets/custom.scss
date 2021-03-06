@@ -35,6 +35,10 @@ a {
   color: $primary-color-text;
 }
 
+.user-sign a {
+  margin: 10px;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -342,4 +346,10 @@ form {
   .user-section {
     width: 50%;
   }
+}
+
+.btn-request {
+  background-color: #689f38;
+  padding: 5px;
+  border-radius: 5px;
 }
