@@ -4,6 +4,7 @@ module UsersHelper
     accept = current_user.friend_requests.include?(user)
     pending = current_user.pending_requests.include?(user)
     return unless user != current_user
+
     if accept
       content_tag(:br) do
         content_tag(:div) do
