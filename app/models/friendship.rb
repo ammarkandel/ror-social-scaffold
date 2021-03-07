@@ -3,7 +3,7 @@ class Friendship < ApplicationRecord
   belongs_to :friend, class_name: 'User'
 
   def confirm_friend
-    self.update_attributes(confirmed: true)
+    update_attributes(confirmed: true)
     Friendship.create!(
       friend_id: user_id,
       user_id: friend_id,
