@@ -21,15 +21,6 @@ class User < ApplicationRecord
   has_many :confirmed_friendships, -> { where confirmed: true }, class_name: 'Friendship'
   has_many :friends, through: :confirmed_friendships
 
-  #def friends
-  #  friends_array = friendships.map do |f|
-  #    f.friend if f.confirmed
-  #  end && inverse_friendships.map do |f|
-  #           f.user if f.confirmed
-  #         end
-  #  friends_array.compact
-  # end
-
   def confirm_friend(user)
     friend = inverse_friendships.find { |fr| fr.user == user }
     friend.confirmed = true
