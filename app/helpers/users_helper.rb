@@ -25,4 +25,13 @@ module UsersHelper
       link_to 'Unfriend', friendship_path(id: user), method: :delete, class: 'btn-request'
     end
   end
+
+  def find_mutual_friends
+    if @mutual_friends && @mutual_friends.empty?
+      content_tag :p, 'No mutual friends yet'
+    else
+      ((content_tag :h3, 'Mutual friends').to_s <<
+        (@mutual_friends).to_s).html_safe
+    end
+  end
 end
