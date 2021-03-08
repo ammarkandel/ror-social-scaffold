@@ -18,14 +18,8 @@ class User < ApplicationRecord
   has_many :requested_friendships, -> { where confirmed: nil }, class_name: 'Friendship', foreign_key: 'friend_id'
   has_many :friend_requests, through: :requested_friendships, source: :user
 
-  def friends
-    friends_array = friendships.map do |f|
-      f.friend if f.confirmed
-    end && inverse_friendships.map do |f|
-             f.user if f.confirmed
-           end
-    friends_array.compact
-  end
+  has_many :confirmed_friendships, -> { where confirmed: true }, class_name: 'Friendship'
+  has_many :friends, through: :confirmed_friendships
 
   def confirm_friend(user)
     friend = inverse_friendships.find { |fr| fr.user == user }
@@ -35,5 +29,9 @@ class User < ApplicationRecord
 
   def friend?(user)
     friends.include?(user)
+  end
+
+  def mutual_friends(user)
+    friends & user.friends
   end
 end
